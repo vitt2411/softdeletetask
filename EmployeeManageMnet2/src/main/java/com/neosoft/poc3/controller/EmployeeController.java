@@ -17,25 +17,26 @@ import com.neosoft.poc3.service.EmployeeService;
 public class EmployeeController {
 	@Autowired
 	EmployeeService service;
+
 	@PostMapping("/add")
 	public Employee add(@RequestBody Employee e) {
-		
+
 		return service.saveData(e);
-		
+
 	}
-	
 
 	@DeleteMapping("/delete/{id}")
 	public String softDelete(@PathVariable("id") int id) {
-
+		System.out.println("another statement added");
 		return service.softDelete(id);
 
 	}
+
 	@GetMapping("/all")
-	public List<Employee> getAll(){
-		
+	public List<Employee> getAll() {
+
 		return service.getAll();
-		
+
 	}
 
 }
